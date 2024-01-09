@@ -1,11 +1,15 @@
 import csv #import csv library so we can parse the CSV file
 
+
+
 ####
 #GLOBAL VARIABLES
 ####
 dates = [] #define empty list to store Date values from the CSV file
 profits_and_losses = [] #define empty list to store Profit/Losses values from the CSV file
 change = [] #declare an empty list to hold the values of the Profit/Losses changes from month to month 
+
+
 
 ####
 #IMPORT DATA
@@ -15,6 +19,8 @@ with open('budget_data.csv', newline='') as budget_data: #open the budget_data.c
     for row in budget_reader:
         dates.append(row['Date']) #use the Date key to append values to the dates list 
         profits_and_losses.append(int(row['Profit/Losses'])) #use the Profit/Losses key to append values to the profits_and_losses list; converted values from strings to integers 
+
+
 
 ####
 #FUNCTIONS
@@ -54,26 +60,40 @@ def greatest_decrease_in_profits():
     amount = min(change) #grab the max value from the change list
     return [date, amount] #return both the date and amount variables in a list
 
+
 ###
 #PRINT RESULTS TO TERMINAL
 ###
-print('Financial Analysis')
-print('----------------------------')
 
-print(f'Total Months: {total_months()}')
-print(f'Total: ${net_total()}') 
-print(f'Average Change: ${avg_changes()}')
-print(f'Greatest Increase in Profits: {greatest_increase_in_profits()[0]} (${greatest_increase_in_profits()[1]})')
-print(f'Greatest Decrease in Profits: {greatest_decrease_in_profits()[0]} (${greatest_decrease_in_profits()[1]})')
+#create a function to print results 
+def print_results():
+    print('Financial Analysis')
+    print('----------------------------')
+
+    print(f'Total Months: {total_months()}')
+    print(f'Total: ${net_total()}') 
+    print(f'Average Change: ${avg_changes()}')
+    print(f'Greatest Increase in Profits: {greatest_increase_in_profits()[0]} (${greatest_increase_in_profits()[1]})')
+    print(f'Greatest Decrease in Profits: {greatest_decrease_in_profits()[0]} (${greatest_decrease_in_profits()[1]})')
 
 ###
 #WRITE RESULTS TO CSV FILE
 ###
-with open('PyBank_Results_Script.txt', 'w') as file: #open a file in write mode and write the desired output
-    file.write('Financial Analysis \n')
-    file.write('---------------------------- \n')
-    file.write(f'Total Months: {total_months()} \n')
-    file.write(f'Total: ${net_total()} \n')
-    file.write(f'Average Change: ${avg_changes()} \n')
-    file.write(f'Greatest Increase in Profits: {greatest_increase_in_profits()[0]} (${greatest_increase_in_profits()[1]}) \n')
-    file.write(f'Greatest Decrease in Profits: {greatest_decrease_in_profits()[0]} (${greatest_decrease_in_profits()[1]})')
+#create a funtion to write the results to a text file
+def write_results():
+    with open('PyBank_Results_Script.txt', 'w') as file: #open a file in write mode and write the desired output
+        file.write('Financial Analysis \n')
+        file.write('---------------------------- \n')
+        file.write(f'Total Months: {total_months()} \n')
+        file.write(f'Total: ${net_total()} \n')
+        file.write(f'Average Change: ${avg_changes()} \n')
+        file.write(f'Greatest Increase in Profits: {greatest_increase_in_profits()[0]} (${greatest_increase_in_profits()[1]}) \n')
+        file.write(f'Greatest Decrease in Profits: {greatest_decrease_in_profits()[0]} (${greatest_decrease_in_profits()[1]})')
+
+
+#create a function to run the script
+def run_pybank_script():
+    print_results() #call function to print results to terminal
+    write_results() #call function to write results to text file
+
+run_pybank_script() #call function to run script
