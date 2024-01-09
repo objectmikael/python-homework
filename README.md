@@ -7,9 +7,19 @@
 - [pybank_script.py](PyBank/pybank_script.py) is a python script that prints the results of the analysis to the terminal. 
 - [PyBank_Results_Script.txt](PyBank/PyBank_Results_Script.txt) is a text file that contains the results of the analysis, via python script.
 
+  >To run the Jupyter Notebook open [main.ipynb](PyBank/main.ipynb) and run all cells. 
+
+  >To run the PyBank script, open up a terminal, navigate to the PyBank directory, and run python pybank_script.py 
+
 ### PyRamen Directory Description
   - [menu_data.csv](PyRamen/menu_data.csv) and [sales_data.csv](PyRamen/sales_data.csv) are the provided data sets. 
   - [main.ipynb](PyRamen/main.ipynb) is a Jupyter Notebook that contains the answers to each question in various cells.
+  - [pyramen_script.py](PyRamen/pyramen_script.py) is a python script that prints the results of the analysis to the terminal. 
+  - [PyRamen_Results_Script.txt](Pyramen/PyRamen_Results_Script.txt) is a text file that contains the results of the analysis, via python script.
+
+    >To run the Jupyter Notebook open [main.ipynb](PyRamen/main.ipynb) and run all cells. 
+
+    >To run the PyRamen script, open up a terminal, navigate to the PyRamen directory, and run python pyramen_script.py 
 
 ---
 ---
